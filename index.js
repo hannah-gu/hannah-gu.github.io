@@ -35,6 +35,28 @@ const demo = async () => {
     }
   }
 
+  const lionElement = document.getElementById('lion');
+  if (lionElement.complete && lionElement.naturalHeight !== 0) {
+    predict(lionElement);
+    lionElement.style.display = '';
+  } else {
+    catElement.onload = () => {
+      predict(lionElement);
+      lionElement.style.display = '';
+    }
+  }
+
+  const thinkerElement = document.getElementById('thinker');
+  if (thinkerElement.complete && thinkerElement.naturalHeight !== 0) {
+    predict(thinkerElement);
+    thinkerElement.style.display = '';
+  } else {
+    catElement.onload = () => {
+      predict(thinkerElement);
+      thinkerElement.style.display = '';
+    }
+  }
+
   document.getElementById('file-container').style.display = '';
 };
 
