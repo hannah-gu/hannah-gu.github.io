@@ -24,14 +24,36 @@ const demo = async () => {
   status('');
 
   // Make a prediction through the locally hosted cat.jpg.
-  const catElement = document.getElementById('cat');
-  if (catElement.complete && catElement.naturalHeight !== 0) {
-    predict(catElement);
-    catElement.style.display = '';
+  const butElement = document.getElementById('butler');
+  if (butElement.complete && butElement.naturalHeight !== 0) {
+    predict(butElement);
+    butElement.style.display = '';
+  } else {
+    butElement.onload = () => {
+      predict(butElement);
+      butElement.style.display = '';
+    }
+  }
+
+  const lionElement = document.getElementById('lion');
+  if (lionElement.complete && lionElement.naturalHeight !== 0) {
+    predict(lionElement);
+    lionElement.style.display = '';
   } else {
     catElement.onload = () => {
-      predict(catElement);
-      catElement.style.display = '';
+      predict(lionElement);
+      lionElement.style.display = '';
+    }
+  }
+
+  const thinkerElement = document.getElementById('thinker');
+  if (thinkerElement.complete && thinkerElement.naturalHeight !== 0) {
+    predict(thinkerElement);
+    thinkerElement.style.display = '';
+  } else {
+    catElement.onload = () => {
+      predict(thinkerElement);
+      thinkerElement.style.display = '';
     }
   }
 
